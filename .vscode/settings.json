@@ -54,5 +54,8 @@
         "activityBar.background": "#53015D",
         "titleBar.activeBackground": "#750282",
         "titleBar.activeForeground": "#FEFAFF"
+    },
+    "files.associations": {
+        "iosfwd": "cpp"
     }
 }
