@@ -66,54 +66,174 @@ public:
     float e[3];
 };
 
-inline Vector3::Vector3(float e0, float e1, float e2)
-{ e[0] = e0; e[1] = e1; e[2] = e2;}
+inline Vector3::Vector3(float e0, float e1, float e2){
+    e[0] = e0; e[1] = e1; e[2] = e2;
+}
 
-inline const Vector3& Vector3::operator+() const
-{ return *this; }
+inline const Vector3& Vector3::operator+() const{
+    return *this;
+}
 
-inline Vector3 Vector3::operator-() const
-{ return Vector3(-e[0], -e[1], -e[2]);}
+inline Vector3 Vector3::operator-() const{
+    return Vector3(-e[0], -e[1], -e[2]);
+}
 
-inline float Vector3::length() const
-{ return sqrt(e[0] * e[0] + e[1] * e[1] + e[2] * e[2]);}
+inline float Vector3::length() const{
+    return sqrt(e[0] * e[0] + e[1] * e[1] + e[2] * e[2]);
+}
 
-inline float Vector3::squaredLength() const
-{return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];}
+inline float Vector3::squaredLength() const{
+    return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
+}
 
-inline void Vector3::makeUnitVector()
-{ *this = *this/(*this).length(); }
+inline void Vector3::makeUnitVector(){
+    *this = *this/(*this).length();
+}
 
-inline float Vector3::minComponent() const
-{
+inline float Vector3::minComponent() const{
     float temp = e[0];
     if(e[1] < temp) temp = e[1];
     if(e[2] < temp) temp = e[2];
     return temp;
 }
 
-inline float Vector3::maxComponent() const
-{
+inline float Vector3::maxComponent() const{
     float temp = e[0];
     if(e[1] > temp) temp = e[1];
     if(e[2] > temp) temp = e[2];
     return temp;
 }
 
-inline float Vector3::minAbsComponent() const
-{
+inline float Vector3::minAbsComponent() const{
     float temp = fabs(e[0]);
     if(fabs(e[1]) < temp) temp = fabs(e[1]);
     if(fabs(e[2]) < temp) temp = fabs(e[2]);
     return temp;
 }
 
-inline float Vector3::maxAbsComponent() const
-{
+inline float Vector3::maxAbsComponent() const{
     float temp = fabs(e[0]);
     if(fabs(e[1]) > temp) temp = fabs(e[1]);
     if(fabs(e[2]) > temp) temp = fabs(e[2]);
     return temp;
+}
+
+inline int Vector3::indexOfMinComponent() const{
+    int index = 0;
+    float temp = e[0];
+
+    if(e[1] < temp) { temp = e[1]; index = 1;}
+    if(e[2] < temp) index = 2;
+}
+
+inline int Vector3::indexOfMinAbsComponent() const{
+    int index = 0;
+    float temp = fabs(e[0]);
+
+    if(fabs(e[1]) < temp) { temp = fabs(e[1]); index = 1;}
+    if(fabs(e[2]) < temp) index = 2;
+}
+
+inline int Vector3::indexOfMaxComponent() const{
+    int index = 0;
+    float temp = e[0];
+    if(e[1] > temp) { temp = e[1]; index = 1;}
+    if(e[2] > temp) index = 2;
+    return index;
+}
+
+inline int Vector3::indexOfMaxAbsComponent() const{
+    int index = 0;
+    float temp = fabs(e[0]);
+    if(fabs(e[1]) > temp) { temp = e[1]; index = 1; }
+    if(fabs(e[2]) > temp) index = 2;
+    return index;
+}
+
+inline bool operator==(const Vector3& v1, const Vector3& v2)
+{
+    if(v1.e[0] != v2.e[0]) return false;
+    if(v1.e[1] != v2.e[1]) return false;
+    if(v1.e[3] != v2.e[3]) return false;
+    return true;
+}
+
+inline bool operator!=(const Vector3& v1, const Vector3& v2){
+    return !(v1 == v2);
+}
+
+inline Vector3 operator*(float scalar, const Vector3& vec){
+    return Vector3(vec.e[0]* scalar, vec.e[1]*scalar, vec.e[2]*scalar);
+}
+
+inline Vector3 operator*(const Vector3& vec, float scalar){
+    return Vector3(vec.e[0]* scalar, vec.e[1]*scalar, vec.e[2]*scalar);
+}
+
+inline Vector3 operator/(const Vector3& v1, float scalar){
+    return Vector3(v1.e[0]/scalar,  v1.e[1]/scalar, v1.e[2]/scalar);
+}
+
+inline Vector3 operator+(const Vector3& v1, const Vector3& v2){
+    return Vector3(v1.e[0] + v2.e[0], v1.e[1] + v2.e[1], v1.e[2]+v2.e[2]);
+}
+
+inline Vector3 operator-(const Vector3& v1, const Vector3& v2){
+    return Vector3(v1.e[0]-v2.e[0], v1.e[1] - v2.e[1], v1.e[2] - v2.e[2]);
+}
+
+inline Vector3& Vector3::operator+=(const Vector3& v2){
+    *this = *this + v2;
+    return *this;
+}
+
+inline Vector3& Vector3::operator=(const Vector3& v2){
+    e[0] = v2.e[0]; e[1] = v2.e[1]; e[2] = v2.e[2];
+}
+
+inline Vector3& Vector3::operator-=(const Vector3& v2){
+    *this = *this - v2;
+    return *this;
+}
+
+inline Vector3& Vector3::operator*=(float f){
+    *this = *this * f;
+    return *this;
+}
+
+inline float dot(const Vector3& v1, const Vector3& v2){
+    return v1.x()*v2.x() + v1.y()*v2.y() + v1.z()*v2.z();
+}
+
+inline Vector3 cross(const Vector3& v1, const Vector3& v2){
+    Vector3 temp;
+    temp[0] = v1.y()*v2.z()-v1.z()*v2.y();
+    temp[1] = v1.z()*v2.x()-v1.x()*v2.z();
+    temp[2] = v1.x()*v2.y()-v1.y()*v2.x();
+    return temp;
+}
+
+inline Vector3 unitVetcor(const Vector3& v){
+    float length = v.length();
+    return v / length;
+}
+
+inline Vector3 minVec(const Vector3& v1, const Vector3& v2){
+    Vector3 vec(v1);
+    if(v2.x() > v1.x()) vec.setX(v2.x());
+    if(v2.y() > v1.y()) vec.setX(v2.y());
+    if(v2.z() < v1.z()) vec.setX(v2.z());
+
+    return vec;
+}
+
+inline Vector3 maxVec(const Vector3& v1, const Vector3& v2){
+    Vector3 vec(v1);
+    if(v2.x() < v1.x()) vec.setX(v2.x());
+    if(v2.y() < v1.y()) vec.setX(v2.y());
+    if(v2.z() < v1.z()) vec.setX(v2.z());
+
+    return vec;
 }
 
 #endif
