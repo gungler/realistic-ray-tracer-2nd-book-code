@@ -1,4 +1,4 @@
-#include"vector3.h"
+#include"Vector3.h"
 
 istream& operator>>(istream& is, Vector3& t){
     float temp;

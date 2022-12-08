@@ -56,6 +56,7 @@
         "titleBar.activeForeground": "#FEFAFF"
     },
     "files.associations": {
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "string": "cpp"
     }
 }

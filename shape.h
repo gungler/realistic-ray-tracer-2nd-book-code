@@ -1,8 +1,8 @@
 #ifndef _SHAPE_H_
 #define _SHAPE_H_
-#include"ray.h"
-#include"vector3.h"
-#include"rgb.h"
+#include"Ray.h"
+#include"Vector3.h"
+#include"RGB.h"
 
 class ray;
 class rgb;

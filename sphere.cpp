@@ -1,4 +1,4 @@
-#include"sphere.h"
+#include"Sphere.h"
 Sphere::Sphere(const Vector3& _center, float _radius, const rgb& _color)
                 :center(_center), radius(_radius), color(_color){}
 

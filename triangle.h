@@ -1,9 +1,9 @@
 #ifndef _TRIANGLE_H
 #define _TRIANGLE_H_
-#include"shape.h"
+#include"Shape.h"
 #include"Vector3.h"
-#include"rgb.h"
-#include"ray.h"
+#include"RGB.h"
+#include"Ray.h"
 
 class Triangle:public Shape{
 public:

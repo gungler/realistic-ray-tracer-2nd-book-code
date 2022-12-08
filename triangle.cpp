@@ -1,4 +1,4 @@
-#include"triangle.h"
+#include"Triangle.h"
 
 Triangle::Triangle(const Vector3& _p0, const Vector3* _p1,
                     const Vector3& p2, const rgb& _color):

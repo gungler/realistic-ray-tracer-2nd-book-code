@@ -1,10 +1,10 @@
 #ifndef _SHPHERE_H_
 #define _SHPHERE_H_
 
-#include"shape.h"
-#include"vector3.h"
-#include"ray.h"
-#include"rgb.h"
+#include"Shape.h"
+#include"Vector3.h"
+#include"Ray.h"
+#include"RGB.h"
 
 class Sphere:public Shape{
 public:

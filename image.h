@@ -4,7 +4,7 @@
 #include <cmath>
 #include <string>
 #include <fstream>
-#include "rgb.h"
+#include "RGB.h"
 using namespace std;
 class Image{
 public:
