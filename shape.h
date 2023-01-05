@@ -3,6 +3,7 @@
 #include"Ray.h"
 #include"Vector3.h"
 #include"RGB.h"
+#include"Texture.h"
 
 class ray;
 class rgb;
@@ -10,7 +11,9 @@ class rgb;
 struct HitRecord{
     float t;
     Vector3 normal;
-    rgb color;
+    Vector2 uv;
+    Vector3 hit_p;
+    Texture* hit_tex;
 };
 
 class Shape{
