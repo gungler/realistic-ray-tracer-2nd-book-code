@@ -58,6 +58,12 @@
     "files.associations": {
         "iosfwd": "cpp",
         "string": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "memory": "cpp",
+        "system_error": "cpp",
+        "utility": "cpp",
+        "xtr1common": "cpp",
+        "xutility": "cpp",
+        "iomanip": "cpp"
     }
 }
