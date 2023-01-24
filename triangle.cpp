@@ -82,3 +82,23 @@ bool Triangle::shadowHit(cnst Ray& t, float tmin, float tmax,
     tval = -(F*AKJB + E*JCAL + D*BLKC) / denom;
     return (tval >= tmin && tval <= tmax);
 }
+
+ bool Triangle::randomPoint(const Vector3& viewpoint, const Vector2& seed,
+        float time, Vetcor3& light_point, Vector3& N, float& pdf,
+        rgb& radiance)const{
+    
+    float temp = sqrt(1.0f - seed.x());
+    float beta = (1.0f - temp);
+    float gamma = temp*seed.y();
+    light_point= (1.0f - beta - gamma)*p0+beta*p1+gamma*p2;
+
+    Vector3 from_light = unitVector(viewpoint - light_point);
+    ONB uvw;
+    N = unitVEctor(cross((p1-p0), (p2-p0)));
+    uvw.initFromW(N);
+
+    radiance = mptr->emittedRadiance(uvw, from_light, light_point,
+        Vector2(0.0f, 0.0f));
+    
+    return true;
+}

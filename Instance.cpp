@@ -12,7 +12,7 @@ bool Instance::hit(const Ray& r, float tmin ,float tmax, float time,
     Vector3 no = transformLoc(N, r.origin());
     Vector3 nd = transformVec(N, r.origin());
 
-    Rat tray(no, nd);
+    Ray tray(no, nd);
     if(prim->hit(tray, tmin ,tmax, time, rec)){
         rec.p = transformLoc(M, rec.p);
         Vector3 normal = transformVec(N.getTranspose(), rec.uvw.w());

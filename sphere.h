@@ -14,6 +14,8 @@ public:
             HitRecord& record)const;
     bool shaowHit(const Ray& t, float tmin, float tmax, float time) const;
 
+    bool randomPoint(const Vector3& viewpoint, cosnt Vector2& seed,
+                    float time, Vector3& on_light, Vector3& N, float& pdf, rgb& E) const;
     Vector3 center;
     float radius;
     rgb color;

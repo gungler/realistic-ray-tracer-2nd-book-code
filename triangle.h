@@ -12,6 +12,9 @@ public:
     bool hit(const Ray& r, float tmin, float tmax, float time,
             HitRecord& record) const;
     
+    bool randomPoint(const Vector3& viewpoint, const Vector2& seed,
+                float time, Vetcor3& light_point, Vector3& N, float& pdf,
+                rgb& radiance)const;
     Vector3 p0;
     Vector3 p1;
     Vector3 p2;
