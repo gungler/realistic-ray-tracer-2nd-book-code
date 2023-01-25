@@ -124,6 +124,7 @@ inline int Vector3::indexOfMinComponent() const{
 
     if(e[1] < temp) { temp = e[1]; index = 1;}
     if(e[2] < temp) index = 2;
+    return index;
 }
 
 inline int Vector3::indexOfMinAbsComponent() const{
@@ -132,6 +133,7 @@ inline int Vector3::indexOfMinAbsComponent() const{
 
     if(fabs(e[1]) < temp) { temp = fabs(e[1]); index = 1;}
     if(fabs(e[2]) < temp) index = 2;
+    return index;
 }
 
 inline int Vector3::indexOfMaxComponent() const{

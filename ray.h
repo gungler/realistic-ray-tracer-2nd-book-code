@@ -9,7 +9,7 @@ public:
     { data[0] = a; setDirection(b); }
 
     Ray(const Ray& r) {*this = r;}
-    Ray& operator=(const Ray& original);
+    Ray& operator=(const Ray& original)
     { setOrigin(original.data[0]; setDirection(original.data[1]));}
 
     Vector3 origin() const { return data[0]; }
