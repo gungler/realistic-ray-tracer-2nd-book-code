@@ -13,7 +13,7 @@ public:
         const Vector3&,
         const Vector3&,
         const Vector2&);
-    virtual bool explicitBrdf(ONB& const,
+    virtual bool explicitBrdf(const ONB&,
         const Vector3&,
         const Vector3&,
         const Vector3&,

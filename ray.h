@@ -10,11 +10,12 @@ public:
 
     Ray(const Ray& r) {*this = r;}
     Ray& operator=(const Ray& original)
-    { setOrigin(original.data[0]; setDirection(original.data[1]));}
+    { setOrigin(original.data[0]); setDirection(original.data[1]);}
 
     Vector3 origin() const { return data[0]; }
     Vector3 direction() const { return data[1]; }
     Vector3 invDirection() const { return data[2]; }
+    void setOrigin(const Vector3& v){ data[0] = v; }
     void setDirection(const Vector3& v){
         data[1] = v;
         data[2] = Vector3(1.0f/v.x(), 1.0f/ v.y(), 1.0f/v.z());

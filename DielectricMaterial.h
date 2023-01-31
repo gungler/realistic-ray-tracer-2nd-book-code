@@ -1,4 +1,4 @@
-#ifnef _DIELECTRIC_MATERIAL_H_
+#ifndef _DIELECTRIC_MATERIAL_H_
 #define _DIELECTRIC_MATERIAL_H_
 
 #include"Material.h"
@@ -32,5 +32,4 @@ public:
     float nt;
     rgb extinction;
 };
-
 #endif

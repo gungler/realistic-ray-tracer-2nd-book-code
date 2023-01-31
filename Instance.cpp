@@ -8,7 +8,7 @@ Instance::Instance(Matrix trans, Shape* _prim)
 }   
 
 bool Instance::hit(const Ray& r, float tmin ,float tmax, float time,
-                HirRecord& rec) const{
+                HitRecord& rec) const{
     Vector3 no = transformLoc(N, r.origin());
     Vector3 nd = transformVec(N, r.origin());
 
@@ -19,13 +19,13 @@ bool Instance::hit(const Ray& r, float tmin ,float tmax, float time,
         ONB uvw;
         uvw.initFromW(normal);
         rec.uvw = uvw;
-        return ture;
+        return true;
     }
     return false;
 }
 bool Instance::shadowHit(const Ray& r, float tmin ,float tmax, float time) const{
     Vector3 no = transformLoc(N, r.origin());
-    Vetcor3 nd = transformVec(N, r.origin());
+    Vector3 nd = transformVec(N, r.origin());
     Ray tray(no, nd);
     return (prim->shadowHit(tray, tmin, tmax, time));
 }

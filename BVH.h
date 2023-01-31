@@ -31,7 +31,7 @@ inline BVH::BVH(Shape* prim1, Shape* prim2){
     left = prim1;
     right = prim2;
     bbox = surround(prim1->boundingBox(0.0f, 0.0f),
-                    prim2->boudningBox(0.0f, 0.0f));
+                    prim2->boundingBox(0.0f, 0.0f));
 }
 
 #endif

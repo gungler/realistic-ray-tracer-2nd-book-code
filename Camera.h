@@ -24,7 +24,7 @@ public:
             :center(c), d(distance), u0(left), u1(right), v0(bottom), v1(top){
                 lens_radius = aperture / 2.0f;
                 uvw.initFromWV(-gaze, vup);
-                corner = center + u0*uvw.u() + v0*uvw.v() - d.uvw.w();
+                corner = center + u0*uvw.u() + v0*uvw.v() - d*uvw.w();
                 across = (u0 - u1)*uvw.u();
                 up = (v0 - v1)* uvw.v();
             }

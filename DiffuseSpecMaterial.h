@@ -1,13 +1,14 @@
-#ifnedf _DIFFUSE_SPEC_MATERIAL_H_
+#ifndef _DIFFUSE_SPEC_MATERIAL_H_
 #define _DIFFUSE_SPEC_MATERIAL_H_
 
 #include"Material.h"
-#icnlude"RNG.h"
+#include"RNG.h"
+
 class DiffSpecMaterial:public Material{
 public:
     DiffSpecMaterial(){}
     DiffSpecMaterial(Material* d, Material* s, float r0 = .05f)
-    { diff_mat = d; spec_mat = s; R0 = r0;}
+    { diff_mat = d; spec_mat = s; R0 = r0; }
 
     virtual rgb ambientResponse(const ONB&,
         const Vector3&,
@@ -22,7 +23,7 @@ public:
         rgb&);
     
     virtual bool scatterDirection(const Vector3&,
-        const HitRecord&,
+        const SurfaceHitRecord&,
         Vector2&,
         rgb&,
         bool&,

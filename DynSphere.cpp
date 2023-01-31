@@ -5,7 +5,7 @@ DynSphere::DynSphere(const Vector3& _ocenter, float _radius,
                     :ocenter(_ocenter), radius(_radius), color(_color), mintime(min_time),
                     maxtime(max_time){}
 
-bool DynSphere::hit(const Ray& r, float tmin, float tmax, float tmax, float time,
+bool DynSphere::hit(const Ray& r, float tmin, float tmax, float time,
                     HitRecord& record) const{
     Vector3 new_center = getCenter(time);
     Vector3 temp = r.origin() - new_center;

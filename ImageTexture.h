@@ -2,7 +2,14 @@
 #define _IMAGE_TEXTURE_H_
 #include"Texture.h"
 
-class Image;
+class Image{
+    float width() const { return width; }
+    float height() const { return height; } 
+
+    float width;
+    float height;
+};
+
 class ImageTexture:public Texture{
 public:
     ImageTexture(char* file_name);

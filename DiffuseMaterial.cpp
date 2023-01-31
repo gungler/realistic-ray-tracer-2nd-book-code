@@ -13,7 +13,7 @@ bool DiffuseMaterial::explicitBrdf(const ONB&, const Vector3&,
 }
 
 bool DiffuseMaterial::diffuseDirection(const ONB& uvw, const Vector3&,
-    const Vector3& p. const Vector2& uv, Vector2& seed, rgb& color,
+    const Vector3& p, const Vector2& uv, Vector2& seed, rgb& color,
     Vector3& v_out){
     float pi = M_PI;
     float phi = 2*pi*seed.x();

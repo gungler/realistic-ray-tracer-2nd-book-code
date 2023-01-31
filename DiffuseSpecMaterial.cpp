@@ -17,17 +17,17 @@ rgb DiffSpecMaterial::ambientResponse(const ONB& uvw, const Vector3& v_in,
 
 bool DiffSpecMaterial::explicitBrdf(const ONB& uvw, const Vector3& v0,
         const Vector3& v1, const Vector3& p, const Vector2& uv, rgb& brdf){
-    return diff_mat->explicitBrdf(uvw, v_in, p, uv);
+    return diff_mat->explicitBrdf(uvw, v0, v1, p, uv, brdf);
 }    
 
 bool DiffSpecMaterial::scatterDirection(const Vector3& v_in,
-        const HitRecord& rec, Vector2& seed, rgb& color, bool& CEL,
+        const SurfaceHitRecord& rec, Vector2& seed, rgb& color, bool& CEL,
         float& brdf, Vector3& v_out){
     
     float cosine = dot(v_in, rec.uvw.w());
     if(cosine < 0.0f) cosine = -cosine;
     float temp1 = 1.0f - cosine;
-    float R = R0 + (1.0f - R0) * temp*temp*temp*temp;
+    float R = R0 + (1.0f - R0) * temp1*temp1*temp1*temp1;
     float P = (R + 0.5f) / 2.0f;
 
     //we  assume that spec_mat and diff_mat return brdf_scales of 1

@@ -43,7 +43,7 @@ inline bool BBox::rayIntersec(const Ray& r, float tmin, float tmax) const{
     if(t1< interval_min) interval_max = t1;
     if(interval_min > interval_max) return false;
 
-    posneg = r.posneg[2]];
+    posneg = r.posneg[2];
     t0 = (pp[posneg].e[2] - r.data[0].e[2]) * r.data[2].e[2];
     t1 = (pp[1 - posneg].e[2] - r.data[0].e[2])*r.data[2].e[2];
     if(t0 >interval_min) interval_min = t0;

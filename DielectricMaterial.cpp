@@ -67,9 +67,9 @@ bool DielectricMaterial::transmissionDirection(const ONB& uvw,
 
         //since assuming dielectrics are imbedded in air no need to
         //check for total internal refelction here
-        trasmission = in_dir*temp1+normal*(temp1*cosine-sqrt(root));
+        transmission = in_dir*temp1+normal*(temp1*cosine-sqrt(root));
 
-        _rxtinction = rgb(1.0f, 1.0f, 1.0f);
+        _extinction = rgb(1.0f, 1.0f, 1.0f);
     }else{  //ray is outgoing
         float temp2 = (dot(in_dir, normal));
         float root = 1.0f - (nt * nt) * (1.0f - temp2 * temp2);

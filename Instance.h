@@ -14,7 +14,7 @@ public:
     Instance(Matrix trans, Shape* _prim);
 
     bool hit(const Ray& r, float tmin ,float tmax, float time,
-                HirRecord& rec) const;
+                HitRecord& rec) const;
     bool shadowHit(const Ray& r, float tmin ,float tmax, float time) const;
     Matrix M;
     Matrix N;

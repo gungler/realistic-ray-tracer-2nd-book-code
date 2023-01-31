@@ -14,11 +14,12 @@ struct HitRecord{
     Vector2 uv;
     Vector3 hit_p;
     Texture* hit_tex;
+    rgb color;
 };
 
 class Shape{
 public:
-    virtual bool hit(const Ray& r, float tmin, float time,
+    virtual bool hit(const Ray& r, float tmin, float tmax, float time,
                         HitRecord& record) const  = 0;
     virtual bool shadowHit(const Ray& r, float tmin, float tmax,
                             float time)const = 0;

@@ -18,7 +18,7 @@ struct SurfaceHitRecord{
 class Material{
 public:
     virtual bool emits() const { return false; }
-    virtual bool rgb emittedRadiance(const ONB&,
+    virtual rgb emittedRadiance(const ONB&,
             const Vector3&,
             const Vector3&,
             const Vector2&)
@@ -41,7 +41,7 @@ public:
     virtual bool diffuseDirection( const ONB&,
         const Vector3&,
         const Vector3&,
-        const Vector2&
+        const Vector2&,
         Vector2&,
         rgb&,
         Vector3&){ return false;}
